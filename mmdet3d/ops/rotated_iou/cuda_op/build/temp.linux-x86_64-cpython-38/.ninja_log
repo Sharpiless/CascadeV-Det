@@ -1,0 +1,7 @@
+# ninja log v5
+1	15305	1665835960759366457	/home/guowx/data/data/DeMF/mmdet3d/ops/rotated_iou/cuda_op/build/temp.linux-x86_64-cpython-38/sort_vert_kernel.o	8de980c0dd8a2b15
+0	24636	1665835970087400210	/home/guowx/data/data/DeMF/mmdet3d/ops/rotated_iou/cuda_op/build/temp.linux-x86_64-cpython-38/sort_vert.o	59a64d4bf09911ed
+4	13320	1665842084827529263	/home/guowx/data/data/DeMF/mmdet3d/ops/rotated_iou/cuda_op/build/temp.linux-x86_64-cpython-38/sort_vert_kernel.o	6af901d0ac78308a
+3	25001	1665842096507532534	/home/guowx/data/data/DeMF/mmdet3d/ops/rotated_iou/cuda_op/build/temp.linux-x86_64-cpython-38/sort_vert.o	74b90d20dca2a1e2
+4	13572	1666144440998512616	/home/guowx/data/data/DeMF/mmdet3d/ops/rotated_iou/cuda_op/build/temp.linux-x86_64-cpython-38/sort_vert_kernel.o	a3762035356b8e77
+4	21537	1666144448962533413	/home/guowx/data/data/DeMF/mmdet3d/ops/rotated_iou/cuda_op/build/temp.linux-x86_64-cpython-38/sort_vert.o	662c439dd57941a0
