@@ -1,10 +1,9 @@
 # CascadeV-Det
 Official Code of "[Arxiv 2024] CascadeV-Det: Cascade Point Voting for 3D Object Detection"
 
-This is a [MMDetection3D](https://github.com/open-mmlab/mmdetection3d) implementation of the paper Liang et al, "CascadeV-Det: Cascade Point Voting for 3D Object Detection".
+Code repository is under construction... 🏗️ 🚧 🔨
 
-> CascadeV-Det: Cascade Point Voting for 3D Object Detection
-> Yingping Yang, Ying Fu
+This is a [MMDetection3D](https://github.com/open-mmlab/mmdetection3d) implementation.
 
 
 ## Prerequisites
