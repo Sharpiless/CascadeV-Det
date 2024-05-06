@@ -1,44 +1,18 @@
-# Boosting 3D Object Detection via Object-Focused Image Fusion
+# Cascade Point Voting: Towards High Quality 3D Object Detection
 
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/boosting-3d-object-detection-via-object/3d-object-detection-on-sun-rgbd-val)](https://paperswithcode.com/sota/3d-object-detection-on-sun-rgbd-val?p=boosting-3d-object-detection-via-object)
-
-This is a implementation of DeMF (Fcaf3d based).
+This is the official implementation of CascadeV-Det.
 
 
 ## Prerequisites
-The code is tested with Python3.7, PyTorch == 1.9.0, CUDA == 10.2, mmdet3d == 0.15.0, mmcv_full == 1.3.8, mmsegmentation==0.14.1 and mmdet == 2.14.0. We recommend you to use anaconda to make sure that all dependencies are in place. Note that different versions of the library may cause changes in results.
+The code is tested with Python3.8, PyTorch == 1.9.0, CUDA == 11.1, mmdet3d == 0.15.0, mmcv_full == 1.4.0, mmsegmentation==0.14.1 and mmdet == 2.14.0. We recommend you to use anaconda to make sure that all dependencies are in place. Note that different versions of the library may cause changes in results.
 
-**Step 1.** Create a conda environment and activate it.
-```
-conda create --name demf python=3.7
-conda activate demf
-```
 
-**Step 2.** Install MMCV, MMDetection and MMSegmentation.
+Install Minkowski Engine.
 ```
-pip install mmcv-full==1.3.8 -f https://download.openmmlab.com/mmcv/dist/cu102/torch1.9.0/index.html
-pip install mmdet==2.14.0
-pip install mmsegmentation==0.14.1
-```
-
-**Step 3.** Install MMDetection3D.
-```
-git clone -b DeMF_fcaf https://github.com/haoy945/DeMF.git /mmdetection3d
-cd /mmdetection3d
-pip install -r requirements/build.txt
-pip install -v -e .
-```
-
-**Step 4.** Install Minkowski Engine.
-```
-conda install openblas-devel -c anaconda
-export CXX=g++-7
-# Uncomment the following line to specify the cuda home. Make sure `$CUDA_HOME/nvcc --version` is 10.2
-# export CUDA_HOME=/usr/local/cuda-10.2
 pip install -U git+https://github.com/NVIDIA/MinkowskiEngine -v --no-deps --install-option="--blas_include_dirs=${CONDA_PREFIX}/include" --install-option="--blas=openblas"
 ```
 
-**Step 5.** Install differentiable IoU.
+Install differentiable IoU.
 ```
 git clone https://github.com/lilanxiao/Rotated_IoU ./rotated_iou
 cd ./rotated_iou
@@ -48,7 +22,7 @@ cd ${path_to_codebase}/mmdet3d/ops/rotated_iou/cuda_op
 python setup.py install
 ```
 
-**Step 6.** Prepare SUN RGB-D Data following the procedure [here](https://github.com/open-mmlab/mmdetection3d/tree/master/data/sunrgbd).
+Prepare SUN RGB-D Data following the procedure [here](https://github.com/open-mmlab/mmdetection3d/tree/master/data/sunrgbd).
 
 ## Getting Started
 **Step 1.** First we need to train a image branch [here](https://github.com/haoy945/DeMF).
@@ -60,9 +34,9 @@ Or you can download the pre-trained image branch [here](https://drive.google.com
 **Step 2.**
 Specify the path to the pre-trained image branch in [config](configs/fcaf-ca/base.py).
 
-**Step 3.** Train our DeMF using the following command.
+**Step 3.** Train our CascadeV-Det using the following command.
 ```shell
-bash tools/dist_train.sh configs/fcaf-ca/base.py 2
+bash tools/dist_train.sh configs/fcaf-ca/mix_bbox_mask_cascade_lose_top5_5_selective_512_layer2_2gpu.py 2
 ```
 We also provide pre-trained model and log [here](https://drive.google.com/drive/folders/1DVCPN50qKkRRd9Ndtr6CXHYqnOuHs4f5?usp=sharing). Evaluate the pretrained model and you will get the 67.5mAP@0.25 and 51.1mAP@0.5.
 ```shell
